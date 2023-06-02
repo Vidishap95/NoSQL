@@ -5,4 +5,4 @@ router.use((req, res)=>{
     return res.status(404).send('Not Found');
 });
 
-module.export = router;
+module.exports = router;

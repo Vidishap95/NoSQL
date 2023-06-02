@@ -6,8 +6,8 @@ const {
     updateUserById,
     deleteUserById,
     addFriend,
-    emoveFriend,
-} = require ('../../controllers/user-controller');
+    removeFriend,
+} = require ('../../controllers/user-controllers');
 const { remove } = require('../../models/Reaction');
 const { route } = require('./thought-routes');
 

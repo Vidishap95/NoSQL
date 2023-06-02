@@ -76,16 +76,17 @@ const Thoughtcontroller = {
     },
 
     //delete reaction
-    asyns deleteReaction (req, res) {
+    async deleteReaction (req, res) {
         try {
             const thought = await Thought.findOneAndUpdate(
                 {_id: req.params.thoughtId},
                 {$pull: {reactions: {reactionId: req.params.reactionId}}},
                 {runValidators: true, new: true}
             );
-            thought ? res.json(thought): res.status(404).json({message: notFound});
-        }catch(e) {
-            res.status(500).json(e);
+
+            if (!thought) return res.status(404).json({message: notFound});
+        }catch(err) {
+            res.status(500).json(err);
         }
     },
 };
